@@ -1,3 +1,23 @@
-<% @posts.each do |post| %>
+<!-- <% @posts.each do |post| %>
   <div><%= post.title %></div>
+<% end %> -->
+
+<!-- use hardcoding the path and string interpolation -->
+<!-- <% @posts.each do |post| %>
+  <div><a href='<%= "/posts/#{post.id}" %>'><%= post.title %></a></div>
+<% end %> -->
+
+<!-- refactored by using post_path and pass in the post argument -->
+<!-- <% @posts.each do |post| %>
+  <div><%= link_to post.title, post_path(post.id) %></div>
+<% end %> -->
+
+
+ <!-- more refactoring - if we pass in the post as an arg, Rails will automatically use the <%# IDEA:  %> -->
+<% @posts.each do |post| %>
+
+  <div>
+    <%= link_to post.title, post_path(post) %>
+  </div>
+  
 <% end %>
